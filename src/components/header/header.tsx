@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.ico";
 
 import "./header.sass";
 
-export const Header = () => {
+export const Header: FC = () => {
     return (
         <header className="header container">
             <Link to="/">

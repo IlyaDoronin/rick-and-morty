@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { MainPage } from "../../pages";
@@ -6,7 +6,7 @@ import { Header } from "../";
 
 import "./app.sass";
 
-export const App = () => {
+export const App: FC = () => {
     return (
         <>
             <Header />

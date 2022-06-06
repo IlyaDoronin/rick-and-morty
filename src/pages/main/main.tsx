@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 
 import "./main.sass";
 
-export const MainPage = () => {
+export const MainPage: FC = () => {
     return <div>MAIN PAGE</div>;
 };
