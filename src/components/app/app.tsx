@@ -12,6 +12,7 @@ export const App: FC = () => {
             <Header />
             <main className="container">
                 <Routes>
+                    <Route path="/:page" element={<MainPage />} />
                     <Route path="/*" element={<MainPage />} />
                 </Routes>
             </main>
