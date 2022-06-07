@@ -10,7 +10,7 @@ export const Header: FC = () => {
             <Link to="/">
                 <div className="header__logo">
                     <img className="header__logo_img" src={logo} alt="logo" />
-                    <p className="header__logo_text">Homepage</p>
+                    <p className="header__logo_text">Home</p>
                 </div>
             </Link>
         </header>
