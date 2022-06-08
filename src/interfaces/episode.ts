@@ -7,11 +7,12 @@ export interface IEpisode {
     url: string;
 }
 
-export interface IEpisodes {
-    info: IInfo;
-    results: IEpisode[];
-}
-
 export interface IInfo {
     pages: number;
+}
+
+export interface IEpisodes {
+    info?: IInfo;
+    params?: IEpisodes;
+    result: IEpisode[];
 }

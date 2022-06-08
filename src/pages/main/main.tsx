@@ -1,21 +1,25 @@
 import React, { FC, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useStore } from "effector-react";
 
 import { IEpisode } from "../../interfaces/episode";
-import { $episodes, getEpisodesFx } from "../../models/episodes";
+import { $episodes, getEpisodePagesFx } from "../../models/episodes";
 
 import "./main.sass";
 
 export const MainPage: FC = () => {
-    const { page } = useParams();
-    const state = useStore<IEpisode[] | null>($episodes);
+    const episodes = useStore<IEpisode[]>($episodes);
 
     useEffect(() => {
-        getEpisodesFx();
-    }, [page]);
+        getEpisodePagesFx();
+    }, []);
 
-    console.log(state);
+    console.log(episodes);
 
-    return <div>MAIN PAGE</div>;
+    return (
+        <div>
+            {/* {episodes?.map(({ id, name, air_date, episode, url }) => (
+                <div key={id}></div>
+            ))} */}
+        </div>
+    );
 };
