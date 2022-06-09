@@ -14,14 +14,14 @@ import { filterEpisodes } from "../../utils/filterEpisodes";
 export const MainPage: FC = () => {
     // const episodes = useStore<IEpisode[]>($episodes);
     const episodes = $episodes;
-    const seasons = filterEpisodes($episodes);
+    const seasons = filterEpisodes(episodes);
 
     useEffect(() => {
         // getEpisodePagesFx();
     }, []);
 
     return (
-        <div>
+        <div className="page">
             {Object.keys(seasons)?.map((season) => (
                 <Season
                     key={season}

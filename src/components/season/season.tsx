@@ -1,11 +1,9 @@
 import React, { FC } from "react";
-import { Route, Routes } from "react-router-dom";
 
-import { MainPage } from "../../pages";
-import { Header } from "../";
+import { Episode } from "./episode";
 
-import "./season.sass";
 import { IEpisode } from "../../interfaces/episode";
+import "./season.sass";
 
 interface SeasonProps {
     number: number;
@@ -14,8 +12,13 @@ interface SeasonProps {
 
 export const Season: FC<SeasonProps> = ({ number, episodes }) => {
     return (
-        <section>
-            
+        <section className="season">
+            <h2 className="season__title">Season {number}</h2>
+            <div className="season__episodes">
+                {episodes?.map((episode) => (
+                    <Episode key={episode.id} episode={episode} />
+                ))}
+            </div>
         </section>
     );
 };
