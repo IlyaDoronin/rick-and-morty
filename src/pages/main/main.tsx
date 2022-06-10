@@ -22,6 +22,7 @@ export const MainPage: FC = () => {
 
     return (
         <div className="page">
+            <div></div>
             {Object.keys(seasons)?.map((season) => (
                 <Season
                     key={season}
