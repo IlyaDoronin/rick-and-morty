@@ -13,10 +13,11 @@ export const Episode: FC<EpisodeProps> = ({
 }) => {
     return (
         <Link to={`episode/${id}`} className="episode">
+            <p className="episode__info">{id}</p>
             <p className="episode__info">{name}</p>
             <p className="episode__info">{air_date}</p>
-            <p className="episode__info">Episode - {episode}</p>
-            <p className="episode__info">Characters - {characters.length}</p>
+            <p className="episode__info">{episode}</p>
+            <p className="episode__info">{characters.length}</p>
         </Link>
     );
 };
