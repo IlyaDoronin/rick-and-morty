@@ -21,8 +21,6 @@ export const MainPage: FC = () => {
     const episodes = $episodes;
     const seasons = filterEpisodes(episodes);
 
-    const searchEpisodes = () => console.log("search");
-
     useEffect(() => {
         // getEpisodePagesFx();
     }, []);
@@ -36,7 +34,7 @@ export const MainPage: FC = () => {
 
     return (
         <div className="page">
-            <Search value={value} setValue={setValue} search={searchEpisodes} />
+            <Search value={value} setValue={setValue} />
             {value ? (
                 <>
                     <Episodes episodes={foundEpisodes} />
