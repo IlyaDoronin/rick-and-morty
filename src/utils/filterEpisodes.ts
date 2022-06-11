@@ -1,5 +1,6 @@
 import { IEpisode } from "../interfaces/episode";
 
+// Разделение эпизодов на сезоны
 export const filterEpisodes = (episodes: IEpisode[]) =>
     episodes.reduce((acc, item: IEpisode) => {
         // Коррентный номер сезона

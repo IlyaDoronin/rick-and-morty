@@ -1,3 +1,4 @@
 export { App } from "./app";
 export { Header } from "./header";
-export { Season } from "./season";
+export { Episodes } from "./episodes";
+export { Search } from "./search";
