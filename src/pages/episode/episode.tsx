@@ -4,7 +4,8 @@ import { useStore } from "effector-react";
 
 import { Episodes } from "../../components";
 
-import { IEpisode, ICharacter } from "../../interfaces/episode";
+import { IEpisode } from "../../interfaces/episode";
+import { ICharacter } from "../../interfaces/character";
 // import { $episode, getEpisodeFx } from "../../models/episode";
 // import { $characters, getCharactersFx } from "../../models/characters";
 import { $episode } from "./mockEpisode";
@@ -15,8 +16,8 @@ import "./episode.sass";
 export const EpisodePage: FC = () => {
     const { id } = useParams();
 
-    const episode = ($episode);
-    const characters = ($characters);
+    const episode = $episode;
+    const characters = $characters;
 
     // const episode: IEpisode = $episode;
     // const characters: ICharacter = $characters;
@@ -33,9 +34,24 @@ export const EpisodePage: FC = () => {
         <div className="page">
             <>
                 {episode && <Episodes episodes={[episode]} />}
-                {characters.map((character) => (
-                    <div key={character.id}>{character.id}</div>
-                ))}
+                <section className="characters">
+                    {characters.map(
+                        ({ id, name, status, gender, origin, image }) => (
+                            <div key={id} className="characters__character">
+                                <img
+                                    className="characters__image"
+                                    src={image}
+                                    alt=""
+                                />
+                                <p>id - {id}</p>
+                                <p>{name}</p>
+                                <p>{status}</p>
+                                <p>{gender}</p>
+                                <p>{origin.name}</p>
+                            </div>
+                        )
+                    )}
+                </section>
             </>
         </div>
     );

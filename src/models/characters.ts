@@ -1,5 +1,5 @@
 import { createStore, createEffect } from "effector";
-import { ICharacter } from "../interfaces/episode";
+import { ICharacter } from "../interfaces/character";
 import { urls } from "../urls";
 
 // Запрос всех персонажей
