@@ -3,7 +3,7 @@ import { IEpisodes, IEpisode } from "../interfaces/episode";
 import { urls } from "../urls";
 
 // Запрос всех эпизодов с сервера
-export const getEpisodesFx = createEffect(async ({ info }: IEpisodes) => {
+const getEpisodesFx = createEffect(async ({ info }: IEpisodes) => {
     let episodes = [];
 
     // Зварос эпизодов с каждой страницы

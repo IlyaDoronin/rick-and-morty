@@ -12,7 +12,7 @@ export const Episode: FC<EpisodeProps> = ({
     episode: { id, name, air_date, episode, characters },
 }) => {
     return (
-        <Link to={`episode/${id}`} className="episode">
+        <Link to={`/episode/${id}`} className="episode">
             <p className="episode__info">{id}</p>
             <p className="episode__info">{name}</p>
             <p className="episode__info">{air_date}</p>
