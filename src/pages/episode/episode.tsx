@@ -43,7 +43,7 @@ export const EpisodePage: FC = () => {
                                     src={image}
                                     alt=""
                                 />
-                                <p>id - {id}</p>
+                                <p>ID - {id}</p>
                                 <p>{name}</p>
                                 <p>{status}</p>
                                 <p>{gender}</p>
