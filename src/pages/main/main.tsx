@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useStore } from "effector-react";
 
-import { Episodes, Search } from "../../components";
+import { Episodes, SortingPanel } from "../../components";
 
 import { IEpisode } from "../../interfaces/episode";
 import { $episodes, getEpisodePagesFx } from "../../models/episodes";
@@ -15,6 +15,14 @@ import { findEpisodes } from "../../utils/findEpisodes";
 export const MainPage: FC = () => {
     // Значение поиска
     const [value, setValue] = useState<string>("");
+    // Отображаемык колонки
+    const [visibleValues, setVisibleValues] = useState({
+        id: true,
+        name: true,
+        air_date: true,
+        episode: true,
+        characters: true,
+    });
     // Найденные эпизодны из поиска
     const [foundEpisodes, setFoundEpisodes] = useState<IEpisode[]>([]);
     const episodes = useStore<IEpisode[]>($episodes);
@@ -34,7 +42,12 @@ export const MainPage: FC = () => {
 
     return (
         <div className="page">
-            <Search value={value} setValue={setValue} />
+            <SortingPanel
+                value={value}
+                setValue={setValue}
+                visible={visibleValues}
+                setVisible={setVisibleValues}
+            />
             {value ? (
                 <>
                     <Episodes episodes={foundEpisodes} />
