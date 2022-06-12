@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { Episode } from "./episode";
 
 import { IEpisode } from "../../interfaces/episode";
-import { sortByKey } from "../../utils/sortByKey";
+import { sortByKey } from "../../utils/sortEpisodes";
 import "./episodes.sass";
 
 interface EpisodesProps {
@@ -12,9 +12,14 @@ interface EpisodesProps {
 }
 
 export const Episodes: FC<EpisodesProps> = ({ season, episodes }) => {
-    // Ключ сортировка эпизодов
+    // Ключ для сортировки эпизодов
     const [key, setKey] = useState<string | number>("");
-    const sortedEpisodes = sortByKey(key, episodes);
+    const [sortedEpisodes, setSortedEpisodes] = useState<IEpisode[]>(episodes);
+
+    useEffect(() => {
+        // Сортировка по значению (id, name, air_date, episodes, number of characters)
+        setSortedEpisodes(sortByKey(key, episodes));
+    }, [key, episodes]);
 
     return (
         <section className="episodes">

@@ -17,7 +17,7 @@ export const Episode: FC<EpisodeProps> = ({
             <p className="episode__info">{name}</p>
             <p className="episode__info">{air_date}</p>
             <p className="episode__info">{episode}</p>
-            <p className="episode__info">{characters.length}</p>
+            <p className="episode__info">{characters?.length}</p>
         </Link>
     );
 };
