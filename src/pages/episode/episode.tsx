@@ -21,6 +21,7 @@ export const EpisodePage: FC = () => {
 
     const episode = useStore<IEpisode>($episode);
     const characters = useStore<ICharacter[]>($characters);
+    const isLoading = useStore(getCharactersFx.pending);
 
     useEffect(() => {
         getEpisodeFx(id);
@@ -35,20 +36,24 @@ export const EpisodePage: FC = () => {
             <>
                 {episode && <Episodes episodes={[episode]} />}
                 <section className="characters">
-                    {characters.map(
-                        ({ id, name, status, gender, origin, image }) => (
-                            <div key={id} className="characters__character">
-                                <img
-                                    className="characters__image"
-                                    src={image}
-                                    alt=""
-                                />
-                                <p>ID - {id}</p>
-                                <p>{name}</p>
-                                <p>{status}</p>
-                                <p>{gender}</p>
-                                <p>{origin.name}</p>
-                            </div>
+                    {isLoading ? (
+                        <p className="characters__loading">Loading...</p>
+                    ) : (
+                        characters.map(
+                            ({ id, name, status, gender, origin, image }) => (
+                                <div key={id} className="characters__character">
+                                    <img
+                                        className="characters__image"
+                                        src={image}
+                                        alt=""
+                                    />
+                                    <p>ID - {id}</p>
+                                    <p>{name}</p>
+                                    <p>{status}</p>
+                                    <p>{gender}</p>
+                                    <p>{origin.name}</p>
+                                </div>
+                            )
                         )
                     )}
                 </section>
