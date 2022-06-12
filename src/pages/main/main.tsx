@@ -4,11 +4,11 @@ import { useStore } from "effector-react";
 import { Episodes, Search } from "../../components";
 
 import { IEpisode } from "../../interfaces/episode";
-// import { $episodes, getEpisodePagesFx } from "../../models/episodes";
+import { $episodes, getEpisodePagesFx } from "../../models/episodes";
 
 import "./main.sass";
 
-import { $episodes } from "./mockEpisodes";
+// import { $episodes } from "./mockEpisodes";
 import { filterEpisodes } from "../../utils/filterEpisodes";
 import { findEpisodes } from "../../utils/findEpisodes";
 
@@ -17,12 +17,12 @@ export const MainPage: FC = () => {
     const [value, setValue] = useState<string>("");
     // Найденные эпизодны из поиска
     const [foundEpisodes, setFoundEpisodes] = useState<IEpisode[]>([]);
-    // const episodes = useStore<IEpisode[]>($episodes);
-    const episodes = $episodes;
+    const episodes = useStore<IEpisode[]>($episodes);
+    // const episodes = $episodes;
     const seasons = filterEpisodes(episodes);
 
     useEffect(() => {
-        // getEpisodePagesFx();
+        getEpisodePagesFx();
     }, []);
 
     useEffect(() => {

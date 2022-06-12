@@ -6,29 +6,29 @@ import { Episodes } from "../../components";
 
 import { IEpisode } from "../../interfaces/episode";
 import { ICharacter } from "../../interfaces/character";
-// import { $episode, getEpisodeFx } from "../../models/episode";
-// import { $characters, getCharactersFx } from "../../models/characters";
-import { $episode } from "./mockEpisode";
-import { $characters } from "./mockCharacters";
+import { $episode, getEpisodeFx } from "../../models/episode";
+import { $characters, getCharactersFx } from "../../models/characters";
+// import { $episode } from "./mockEpisode";
+// import { $characters } from "./mockCharacters";
 
 import "./episode.sass";
 
 export const EpisodePage: FC = () => {
     const { id } = useParams();
 
-    const episode = $episode;
-    const characters = $characters;
+    // const episode = $episode;
+    // const characters = $characters;
 
-    // const episode: IEpisode = $episode;
-    // const characters: ICharacter = $characters;
+    const episode = useStore<IEpisode>($episode);
+    const characters = useStore<ICharacter[]>($characters);
 
-    // useEffect(() => {
-    //     getEpisodeFx(id);
-    // }, [id]);
+    useEffect(() => {
+        getEpisodeFx(id);
+    }, [id]);
 
-    // useEffect(() => {
-    //     if (episode) getCharactersFx(episode.characters);
-    // }, [episode]);
+    useEffect(() => {
+        if (episode) getCharactersFx(episode.characters);
+    }, [episode]);
 
     return (
         <div className="page">
