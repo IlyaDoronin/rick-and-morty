@@ -4,6 +4,8 @@ import { useStore } from "effector-react";
 import { Episodes, SortingPanel } from "../../components";
 
 import { IEpisode } from "../../interfaces/episode";
+import { IVisible } from "../../interfaces/visible";
+
 import { $episodes, getEpisodePagesFx } from "../../models/episodes";
 
 import "./main.sass";
@@ -16,12 +18,12 @@ export const MainPage: FC = () => {
     // Значение поиска
     const [value, setValue] = useState<string>("");
     // Отображаемык колонки
-    const [visibleValues, setVisibleValues] = useState({
-        id: true,
-        name: true,
-        air_date: true,
-        episode: true,
-        characters: true,
+    const [visibleValues, setVisibleValues] = useState<IVisible>({
+        id: { name: "ID", state: true },
+        name: { name: "Name", state: true },
+        air_date: { name: "Date", state: true },
+        episode: { name: "Episode", state: true },
+        characters: { name: "Characters", state: true },
     });
     // Найденные эпизодны из поиска
     const [foundEpisodes, setFoundEpisodes] = useState<IEpisode[]>([]);
@@ -50,7 +52,10 @@ export const MainPage: FC = () => {
             />
             {value ? (
                 <>
-                    <Episodes episodes={foundEpisodes} />
+                    <Episodes
+                        episodes={foundEpisodes}
+                        visibleValues={visibleValues}
+                    />
                 </>
             ) : (
                 <>
@@ -59,6 +64,7 @@ export const MainPage: FC = () => {
                             key={season}
                             season={+season}
                             episodes={seasons[season]}
+                            visibleValues={visibleValues}
                         />
                     ))}
                 </>
