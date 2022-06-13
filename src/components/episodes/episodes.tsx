@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 
 import { Episode } from "./episode";
 
@@ -16,8 +16,8 @@ export const Episodes: FC<EpisodesProps> = ({ season, episodes }) => {
     const [key, setKey] = useState<string | number>("");
     const [sortedEpisodes, setSortedEpisodes] = useState<IEpisode[]>(episodes);
 
-    useEffect(() => {
-        // Сортировка по значению (id, name, air_date, episodes, number of characters)
+    // Сортировка по значению (id, name, air_date, episodes, number of characters)
+    useMemo(() => {
         setSortedEpisodes(sortByKey(key, episodes));
     }, [key, episodes]);
 
@@ -56,7 +56,7 @@ export const Episodes: FC<EpisodesProps> = ({ season, episodes }) => {
                         </p>
                     </div>
                     <div className="episodes__episodes">
-                        {episodes?.map((episode) => (
+                        {sortedEpisodes.map((episode) => (
                             <Episode key={episode.id} episode={episode} />
                         ))}
                     </div>
