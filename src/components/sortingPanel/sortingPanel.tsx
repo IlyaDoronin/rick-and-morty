@@ -47,7 +47,7 @@ export const SortingPanel: FC<SortingPanelProps> = ({
                             onChange={() => onChangeVisibility(key)}
                         />
                         <label className="checkbox__text" htmlFor={key}>
-                            {key}
+                            {visible[key].name}
                         </label>
                     </div>
                 ))}
