@@ -22,7 +22,10 @@ export const SortingPanel: FC<SortingPanelProps> = ({
         setValue(target.value);
 
     const onChangeVisibility = (key: string) =>
-        setVisible((prev) => ({ ...prev, [key]: { state: !prev[key].state } }));
+        setVisible((prev) => ({
+            ...prev,
+            [key]: { ...prev[key], state: !prev[key].state },
+        }));
 
     return (
         <section className="sortingpanel">
