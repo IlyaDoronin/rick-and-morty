@@ -19,22 +19,18 @@ export const Episode: FC<EpisodeProps> = ({
         episode: { name: "Episode", state: true },
         characters: { name: "Characters", state: true },
     },
-}) => {
-    return (
-        <Link to={`/episode/${id}`} className="episode">
-            {visibleValues?.id.state && <p className="episode__info">{id}</p>}
-            {visibleValues?.name.state && (
-                <p className="episode__info">{name}</p>
-            )}
-            {visibleValues?.air_date.state && (
-                <p className="episode__info">{air_date}</p>
-            )}
-            {visibleValues?.episode.state && (
-                <p className="episode__info">{episode}</p>
-            )}
-            {visibleValues?.characters.state && (
-                <p className="episode__info">{characters?.length}</p>
-            )}
-        </Link>
-    );
-};
+}) => (
+    <Link to={`/episode/${id}`} className="episode">
+        {visibleValues?.id.state && <p className="episode__info">{id}</p>}
+        {visibleValues?.name.state && <p className="episode__info">{name}</p>}
+        {visibleValues?.air_date.state && (
+            <p className="episode__info">{air_date}</p>
+        )}
+        {visibleValues?.episode.state && (
+            <p className="episode__info">{episode}</p>
+        )}
+        {visibleValues?.characters.state && (
+            <p className="episode__info">{characters?.length}</p>
+        )}
+    </Link>
+);

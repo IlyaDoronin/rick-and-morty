@@ -21,6 +21,7 @@ export const SortingPanel: FC<SortingPanelProps> = ({
     const onSearch = ({ target }: ChangeEvent<HTMLInputElement>) =>
         setValue(target.value);
 
+    // Изменение отображаемых колонок
     const onChangeVisibility = (key: string) =>
         setVisible((prev) => ({
             ...prev,

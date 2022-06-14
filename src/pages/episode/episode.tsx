@@ -23,10 +23,12 @@ export const EpisodePage: FC = () => {
     const characters = useStore<ICharacter[]>($characters);
     const isLoading = useStore(getCharactersFx.pending);
 
+    // Запрос эпизодов при загрузке страницы
     useEffect(() => {
         getEpisodeFx(id);
     }, [id]);
 
+    // Запрос персонажей, учавствующих в эпизоде
     useEffect(() => {
         if (episode) getCharactersFx(episode.characters);
     }, [episode]);
